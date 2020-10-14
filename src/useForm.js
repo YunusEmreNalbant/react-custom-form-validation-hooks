@@ -10,8 +10,8 @@ const useForm = (validate) => {
         password2:''
     });
 
-    const [errors,setErrors] = useState({})
-
+    const [errors,setErrors] = useState({});
+    const [isSubmitting,setIsSubmitting] = useState(false);
     const handleChange = (e)=>{
             const {name,value} = e.target
             setValues({
@@ -24,6 +24,7 @@ const useForm = (validate) => {
         e.preventDefault();
 
         setErrors(validate(values))
+        setIsSubmitting(true)
     }
 
 
